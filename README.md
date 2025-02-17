@@ -21,12 +21,9 @@ The original GitHub repository for this project is available at: [vProfile Proje
 
 1. **Users** send requests to **NGINX**.
 2. **NGINX** forwards requests to **Apache Tomcat**.
-3. **Tomcat** processes the request and may:
-   - Query **MariaDB** for data.
-   - Use **Memcached** for caching frequently accessed data.
-   - Communicate with **RabbitMQ** to handle message-based tasks.
+3. **Tomcat** processes the request.
 4. **MariaDB** stores and retrieves application data.
-5. **g****itMQ** queues messages for asynchronous processing.
+5. **RabbitMQ** queues messages for asynchronous processing.
 
 ## Setup Instructions
 
@@ -35,7 +32,7 @@ The original GitHub repository for this project is available at: [vProfile Proje
 Ensure the following are installed on your system:
 
 - Vagrant
-- VirtualBox or any compatible provider
+- VirtualBox 
 - Git (optional for cloning the repo)
 
 ### Installation
@@ -51,7 +48,7 @@ Ensure the following are installed on your system:
    ```
 3. Once provisioning is complete, access the application at:
    ```
-   http://localhost:8080
+   http://<nginx--vm-ip-add>
    ```
 
 ## Vagrant Setup Details
@@ -63,11 +60,10 @@ Ensure the following are installed on your system:
   - `mysql.sh`: Sets up MariaDB.
   - `memcache.sh`: Installs Memcached.
   - `rabbitmq.sh`: Installs RabbitMQ.
-  - `backend.sh`: Handles application deployment.
 
 ## Usage
 
-- **Accessing the Web Application**: Once VMs are up, open `http://localhost:8080`.
+- **Accessing the Web Application**: Once VMs are up, open `http://<nginx--vm-ip-add>`.
 - **Database Access**: Use MariaDB with the configured credentials.
 - **Message Queue Monitoring**: Check RabbitMQ queues for message processing.
 - **Cache Invalidation**: Memcached handles automatic caching, reducing DB queries.
@@ -87,7 +83,5 @@ Ensure the following are installed on your system:
 
 Feel free to submit issues or pull requests to enhance this automated setup.
 
-## License
 
-MIT License
 
